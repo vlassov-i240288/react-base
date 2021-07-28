@@ -1,0 +1,8 @@
+.messAutor {
+    font-style: italic;
+}
+
+.mess {
+    display: flex;
+    justify-content: space-between;
+}
