@@ -4,11 +4,34 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; */
+  /* flex-direction: column;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Heading {
+  display: flex;
+  justify-content: start;
+}
+
+.header__center {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.header__left {
+  width: 440px;
+}
+
+.header__right {
+  width: 550px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 

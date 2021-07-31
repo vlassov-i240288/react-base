@@ -1,0 +1,16 @@
+.heading__chatList {
+    padding: 0 16px;
+    margin: 0;
+}
+
+.makeStyles-root-5 {
+    width: 100%;
+    max-width: 100% !important;
+    background-color: #6c84b3 !important;
+    margin-top: 20px !important;
+    border-radius: 5px;
+}
+
+.MuiAvatar-colorDefault {
+    background-color: #3f51b5 !important;
+}

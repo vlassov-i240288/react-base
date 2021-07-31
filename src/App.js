@@ -5,11 +5,13 @@ import { Message } from "./components/Message/message";
 import { MessageList } from "./components/MessageList/messageList";
 import { Form } from "./components/Form/form";
 import { AUTHORS } from "./constants";
+import Test from "./components/TestComp/TestComp";
+import FolderList from "./components/ChatList/ChatList";
 
 function App() {
   const heading = "Чат REACT";
-
   const [messages, setMessages] = useState([]);
+  
 
   const handleSendMessage = useCallback(
     (newMessage) => {
@@ -43,13 +45,28 @@ function App() {
   return (
     <div className="App-header">
 
-      <h1>{ heading }</h1>
-      <div>
-        <Form onSendMessage={handleSendMessage} />
-        <div className="MessageList">
-          <MessageList messages={messages} />
+      <div className="container">
+        <div className="Heading">
+          <h1>{ heading }</h1>
+        </div>
+
+        <div className="header__center">
+        
+          <div className="header__left">
+            <Form onSendMessage={handleSendMessage} />    
+            <FolderList />
+          </div>
+
+          <div className="header__right">
+            <div className="MessageList">
+              <MessageList messages={messages} />
+            </div>
+          </div>
+
         </div>
       </div>
+        
+        
     </div>
     
   );

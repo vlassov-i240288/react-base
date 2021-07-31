@@ -1,11 +1,47 @@
-.btn {
-    border: 1px solid #fff;
-    color: #fff;
-    background-color: transparent;
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* max-width: 600px; */
+    flex-wrap: wrap;
 }
 
-.btn:hover {
-    color: #000;
-    background-color: #fff;
-    cursor: pointer;
+.MuiFormControl-root {
+    width: 355px !important;
+}
+
+.MuiInputBase-input {
+    color: #fff !important;
+    font-size: 60px;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: #fff !important;
+    color: #fff !important;
+    outline: none;
+} 
+
+.MuiFormLabel-root {
+    color: rgba(250, 248, 248, 0.411) !important;
+}
+
+.PrivateNotchedOutline-legendLabelled-3 span {
+    color: #fff !important;
+}
+
+
+.MuiButton-containedPrimary {
+    height: 64px !important;
+    border-radius: 50% !important;
+}
+
+.MuiButton-endIcon {
+    display: inherit;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.MuiButton-iconSizeMedium > *:first-child {
+    font-size: 30px !important;
 }
