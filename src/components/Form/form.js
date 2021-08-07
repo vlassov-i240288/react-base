@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { AUTHORS } from '../../constants';
 import "./form.css";
 import { Button, TextField } from '@material-ui/core';
@@ -8,16 +8,14 @@ import { Icon } from '@material-ui/core';
 export const Form = ({ onSendMessage }) => {
   const [value, setValue] = useState('');
 
-  
   const inputRef = useRef(null);
   useEffect(() => {
-      inputRef.current?.focus();
+    inputRef.current?.focus();
   }, []);
 
   const restInputRef = () => {
-      inputRef.current?.focus();
+    inputRef.current?.focus();
   }
-  
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -35,14 +33,10 @@ export const Form = ({ onSendMessage }) => {
   }
 
   return (
-
     <form onSubmit={handleSubmit} ref={restInputRef} noValidate autoComplete="off">
       <TextField inputRef={inputRef} id="outlined-basic" label="Введите сообщение..." variant="outlined" type="text" value={value} onChange={handleChange} />
       <Button type="submit" variant="contained" color="primary" className={classes.button} endIcon={<Icon>send</Icon>}>
       </Button >
     </form>
-  
-
-
   )
 }
