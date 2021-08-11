@@ -6,31 +6,22 @@ import { Form } from "../../components/Form/form";
 import { AUTHORS } from "../../constants";
 import { useParams } from "react-router-dom";
 import ChatList from "../../components/ChatList/ChatList";
-
-const initialChats = {
-  chat1: { name: "Chat 1", id: "chat1", messages: [] },
-  chat2: { name: "Chat 2", id: "chat2", messages: [] },
-  chat3: { name: "Chat 3", id: "chat3", messages: [] },
-};
+import { useDispatch, useSelector } from "react-redux";
+import { deleteChat, sendMessage } from "../../store/chats/action";
+import { selectName } from "../../store/profile/selector";
 
 function Chats() {
   const heading = "Чаты REACT";
-
   const { chatId } = useParams();
-  console.log(chatId);
-  const [chats, setChats] = useState(initialChats);
+  const name = useSelector(selectName);
+  const chats = useSelector(state => state.chats);
+  const dispatch = useDispatch();
 
   const handleSendMessage = useCallback(
     (newMessage) => {
-      setChats({
-        ...chats,
-        [chatId]: {
-          ...chats[chatId],
-          messages: [...chats[chatId].messages, newMessage],
-        },
-      });
+      dispatch(sendMessage(chatId, newMessage, { author: name }));
     },
-    [chats, chatId]
+    [chatId]
   );
 
   useEffect(() => {
@@ -45,8 +36,8 @@ function Chats() {
 
     const timeout = setTimeout(() => {
       const newMessage = {
-        text: "Я робот!",
         author: AUTHORS.robot,
+        text: "Я робот!",
         id: Date.now(),
       };
 
@@ -56,29 +47,32 @@ function Chats() {
     return () => clearTimeout(timeout);
   }, [chats]);
 
+  const handleDeleteChat = useCallback((id) => {
+    dispatch(deleteChat(id));
+  }, []);
+
   return (
-    
-      <div className="container">
-        <div className="Heading">
-          <h2>{heading}</h2>
-        </div>
 
-        <div className="header__center">
-
-          <div className="header__left">
-            <ChatList chats={chats} />
-          </div>
-          {!!chatId && (
-            <div className="header__right">
-              <Form onSendMessage={handleSendMessage} />
-              <div className="MessageList">
-                <MessageList messages={chats[chatId].messages} />
-              </div>
-            </div>
-          )
-          }
-        </div>
+    <div className="container">
+      <div className="Heading">
+        <h2>{heading}</h2>
       </div>
+      <div className="header__center">
+        <div className="header__left">
+          {/* <ChatList chats={chats} /> */}
+          <ChatList chats={chats} onDeleteChat={handleDeleteChat} />
+        </div>
+        {!!chatId && (
+          <div className="header__right">
+            <Form onSendMessage={handleSendMessage} />
+            <div className="MessageList">
+              <MessageList messages={chats[chatId].messages} />
+            </div>
+          </div>
+        )
+        }
+      </div>
+    </div>
   );
 }
 

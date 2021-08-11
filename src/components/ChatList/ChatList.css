@@ -23,3 +23,30 @@
 .chatList__link {
     color: rgb(163, 163, 163);
 }
+
+.deleteChat {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 15px;
+}
+
+.MuiIcon-root {
+    font-size: 2.5rem !important;
+}
+
+.addChat {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 15px;
+}
+
+.addChatInput {
+    outline: none;
+    height: 25px;
+    padding: 0 10px;
+    font-size: 20px;
+}

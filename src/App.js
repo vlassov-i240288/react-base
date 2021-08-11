@@ -1,6 +1,6 @@
 import Routes from "./components/Routes/Routes";
 import { Provider } from "react-redux";
-import { store } from "./store/profile/index";
+import { store } from "./store/index";
 
 function App() {
   return (

@@ -1,13 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { AUTHORS } from '../../constants';
 import "./form.css";
 import { Button, TextField } from '@material-ui/core';
 import { classes } from 'istanbul-lib-coverage';
 import { Icon } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { selectName } from '../../store/profile/selector';
 
 export const Form = ({ onSendMessage }) => {
   const [value, setValue] = useState('');
-
+  const name = useSelector(selectName);
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current?.focus();
@@ -25,7 +26,7 @@ export const Form = ({ onSendMessage }) => {
     e.preventDefault();
 
     onSendMessage({
-      author: AUTHORS.human,
+      author: name,
       id: Date.now(),
       text: value,
     });
