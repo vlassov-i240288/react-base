@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeName, CHANGE_NAME } from "../../store/profile/action";
 import "./Profile.css";
 
+
+
+
 export default function Profile() {
   const { name } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
@@ -34,9 +37,6 @@ export default function Profile() {
       <div className="formProfile">
         <input className="inputProfile" type="text" value={value} onChange={handleChange} />
         <button className="saveName" onClick={setName}>{<Icon>save</Icon>}</button>
-      </div>
-      <div>
-        
       </div>
     </div>
   );

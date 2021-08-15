@@ -1,13 +1,17 @@
 import Routes from "./components/Routes/Routes";
 import { Provider } from "react-redux";
-import { store } from "./store/index";
+import { persistor, store } from "./store/index";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App-header">
-        <Routes />
-      </div>
+      <PersistGate persistor={persistor}>
+        <div className="App-header">
+          <Routes />
+        </div>
+      </PersistGate>
+
     </Provider>
   )
 }

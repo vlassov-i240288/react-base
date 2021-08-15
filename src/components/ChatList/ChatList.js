@@ -31,9 +31,7 @@ export default function ChatList({ chats, onDeleteChat }) {
             id={c.id}
             onDelete={onDeleteChat}
           />
-         
         </ListItem>
-        
       ))}
       <ListItem>
         <AddChat />

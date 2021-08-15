@@ -4,17 +4,14 @@ const initialState = {
   chat1: {
     name: "Чат - 1",
     id: "chat1",
-    messages: []
   },
   chat2: {
     name: "Чат - 2",
     id: "chat2",
-    messages: []
   },
   chat3: {
     name: "Чат - 3",
     id: "chat3",
-    messages: []
   },
 };
 
@@ -34,7 +31,6 @@ export const chatsReducer = (state = initialState, { type, payload }) => {
     case DELETE_CHAT: {
       const newState = { ...state };
       delete newState[payload];
-
       return newState;
     }
 
@@ -47,6 +43,7 @@ export const chatsReducer = (state = initialState, { type, payload }) => {
         },
       };
     }
+
     default:
       return state;
   }
