@@ -5,6 +5,7 @@ import { compose } from '@material-ui/system';
 import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { gistsReducer } from './gists/reducer';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -17,6 +18,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     chats: chatsReducer,
     profile: profileReducer,
+    gists: gistsReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
