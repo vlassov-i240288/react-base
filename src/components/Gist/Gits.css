@@ -1,0 +1,30 @@
+.ulGits {
+    list-style-type: square;
+}
+.gitsCentrWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gitsCentr {
+    align-self: center;
+    justify-self: center;
+}
+.errorGits {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin: 0 10px;
+}
+
+.errorText {
+    display: flex;
+    align-items: center;
+    
+}
+
+.errorTextSpan {
+    display: block;
+    padding-bottom: 10px;
+}
