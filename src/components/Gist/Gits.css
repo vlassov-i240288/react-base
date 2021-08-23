@@ -1,5 +1,6 @@
 .ulGits {
     list-style-type: square;
+    font-size: 20px;
 }
 .gitsCentrWrap {
     display: flex;

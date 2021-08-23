@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ChatList({ chats, onDeleteChat }) {
+export const ChatList = ({ chats, onDeleteChat, onAddChat }) => {
   const classes = useStyles();
   const heading = "Список чатов";
   return (
@@ -34,7 +34,7 @@ export default function ChatList({ chats, onDeleteChat }) {
         </ListItem>
       ))}
       <ListItem>
-        <AddChat />
+        <AddChat onAddChat={onAddChat} />
       </ListItem>
     </List>
   );

@@ -2,32 +2,23 @@ import { Icon } from "@material-ui/core";
 import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeName, CHANGE_NAME } from "../../store/profile/action";
+import { selectName } from "../../store/profile/selector";
 import "./Profile.css";
 
-
-
-
-export default function Profile() {
-  const { name } = useSelector((state) => state.profile);
+export const Profile = () => {
+  const [value, setValue] = useState("");
+  const name = useSelector(selectName);
   const dispatch = useDispatch();
-  const [value, setValue] = useState('');
 
-  const toggleShowName = {
-    type: CHANGE_NAME
-  };
-
-  const setShowName = useCallback(() => {
-    dispatch(toggleShowName);
-  }, [dispatch]);
-
-  const handleChange = useCallback((e) => {
-    setValue(e.target.value);
-  }, []);
-
-  const setName = useCallback(() => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     dispatch(changeName(value));
     setValue("");
-  }, [dispatch, value]);
+  };
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div className="container">
@@ -36,9 +27,11 @@ export default function Profile() {
       </div>
       <div className="formProfile">
         <input className="inputProfile" type="text" value={value} onChange={handleChange} />
-        <button className="saveName" onClick={setName}>{<Icon>save</Icon>}</button>
+        <button className="saveName" onClick={handleSubmit}>{<Icon>save</Icon>}</button>
       </div>
     </div>
   );
-}
+};
+
+export default Profile;
 
