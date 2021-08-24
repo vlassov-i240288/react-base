@@ -1,0 +1,52 @@
+.heading__chatList {
+    padding: 0 16px;
+    margin: 0;
+}
+
+.makeStyles-root-5 {
+    width: 100%;
+    max-width: 100% !important;
+    background-color: #6c84b3 !important;
+    margin-top: 20px !important;
+    border-radius: 5px;
+}
+
+.MuiAvatar-colorDefault {
+    background-color: #3f51b5 !important;
+}
+
+.chatList__list {
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+.chatList__link {
+    color: rgb(163, 163, 163);
+}
+
+.deleteChat {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 15px;
+}
+
+.MuiIcon-root {
+    font-size: 2.5rem !important;
+}
+
+.addChat {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-left: 15px;
+}
+
+.addChatInput {
+    outline: none;
+    height: 25px;
+    padding: 0 10px;
+    font-size: 20px;
+}
